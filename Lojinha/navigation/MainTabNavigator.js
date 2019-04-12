@@ -21,7 +21,7 @@ const HomeStack = createStackNavigator({
 HomeStack.navigationOptions = {
   tabBarLabel: 'SumUp',
   tabBarIcon: ({ focused }) => (
-    <SUicon/>
+    <SUicon />
   ),
 };
 
@@ -32,7 +32,7 @@ const LinksStack = createStackNavigator({
 LinksStack.navigationOptions = {
   tabBarLabel: 'Mercado Pago',
   tabBarIcon: ({ focused }) => (
-    <MPicon/>
+    <MPicon />
   ),
 };
 

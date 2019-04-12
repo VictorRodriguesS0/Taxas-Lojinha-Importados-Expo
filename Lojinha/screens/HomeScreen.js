@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <SumUp/>
+      <SumUp />
     )
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import { StatusBar, Text, Image } from 'react-native'
+import { StatusBar, Text, Image, StyleSheet } from 'react-native'
 
 import { WebBrowser } from 'expo';
 import { View, Button, Icon } from 'native-base';
@@ -9,13 +9,13 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Extras',
+    header: null,
   };
 
   render() {
 
     return (
-      <View style={{ paddingTop: StatusBar.currentHeight }}>
+      <View style={styles.buttons}>
         <Button iconLeft block
           style={{ marginBottom: 10, marginHorizontal: 10 }}
           onPress={this._abrirTabela}
@@ -81,6 +81,15 @@ export default class SettingsScreen extends React.Component {
             Telegram
         </Text>
         </Button>
+
+        <Button iconLeft block
+          onPress={this._abrirMercadoLivre}
+          style={{ marginBottom: 10, marginHorizontal: 10 }}
+        >
+          <Text style={{ paddingLeft: 10, color: 'white' }}>
+            Mercado Livre
+        </Text>
+        </Button>
       </View>
 
     )
@@ -119,7 +128,20 @@ export default class SettingsScreen extends React.Component {
     this.setState({ result })
   }
 
+  _abrirMercadoLivre = async () => {
+    let result = await WebBrowser.openBrowserAsync('https://perfil.mercadolivre.com.br/LOJINHA+IMPORTADOS')
+    this.setState({ result })
+  }
+
 
 
 
 }
+
+const styles = StyleSheet.create({
+  buttons: {
+    color: "#4E3599",
+    marginBottom: 10,
+    marginHorizontal: 10
+  }
+})
