@@ -1,13 +1,17 @@
 {
   "expo": {
-    "name": "Taxas LI",
+    "name": "Lojinha",
     "slug": "Lojinha",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "android": {
-      "package": "com.lojinhaimportados.taxas"
+      "package": "com.lojinhaimportados.taxas",
+      "versionCode": 4
     },
-    "version": "1.0.0",
+    "androidStatusBar": {
+      "backgroundColor": "#4E3599"
+    },
+    "version": "2",
     "orientation": "portrait",
     "icon": "./assets/images/LojinhaSplash.png",
     "splash": {

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { Button, Thumbnail, Icon, Footer, FooterTab, Header, ScrollableTab } from "native-base";
 import { TextInput, DefaultTheme } from "react-native-paper";
 const lojinha = require("../images/lojinhaIcon.png")
-import {StatusBar} from 'react-native'
+import { StatusBar } from 'react-native'
+import { WebBrowser } from 'expo'
 
 
 const taxa2 = 6.5 / 100;
@@ -18,7 +19,7 @@ const taxa10 = 22.1 / 100;
 const taxa11 = 24.38 / 100;
 const taxa12 = 26.74 / 100;
 
-export default class MercadoPago extends Component {
+export default class SumUp extends Component {
 	state = {
 		text: "",
 		valor: 0.0,
@@ -40,7 +41,7 @@ export default class MercadoPago extends Component {
 	_onPress() {
 		let valor = parseFloat(this.state.text);
 
-        let valorColocar = (valor * 104.82) / 100;
+		let valorColocar = (valor * 104.82) / 100;
 
 		let uma = this.state.uma;
 		let duas = this.state.duas;
@@ -86,15 +87,30 @@ export default class MercadoPago extends Component {
 		});
 	}
 
+	_abrirLink = async () => {
+		let result = await WebBrowser.openBrowserAsync('https://www.lojinhaimportados.com/')
+		this.setState({ result })
+	}
+
+	_duvidas = async () => {
+		await alert("Olá, este é o aplicativo da Lojinha Importados, nessa página você pode simular as condições de parcelamentos nos cartões de crédito em nossa loja física");
+	}
+
+
 	render() {
 		return (
-			<View style={{paddingTop: StatusBar.currentHeight}}>
+			<View style={{ paddingTop: 1 }}>
 
-			
-			<ScrollView>
+
+				<ScrollView>
 					<View style={styles.container}>
-						<View style={styles.thumbView}>
-							<Thumbnail source={lojinha} style={styles.thumb} />
+						<View style={{ flexDirection: "row", justifyContent: "center" }}>
+							<TouchableOpacity onPress={this._abrirLink} style={{}}>
+								<Thumbnail source={lojinha} style={styles.thumb} />
+							</TouchableOpacity>
+							<TouchableOpacity onPress={this._duvidas}>
+								<Icon name='help' />
+							</TouchableOpacity>
 						</View>
 
 						<View
@@ -241,7 +257,7 @@ export default class MercadoPago extends Component {
 							</View>
 						</View>
 					</View>
-			</ScrollView>
+				</ScrollView>
 			</View>
 		);
 	}
@@ -260,7 +276,7 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		margin: 3,
 		width: 140,
-		height: 140
+		height: 100
 	},
 	input: {
 		fontSize: 20,

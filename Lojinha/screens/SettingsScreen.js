@@ -1,86 +1,116 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import { StatusBar, Text, Image } from 'react-native'
+import { StatusBar, Text, Image, StyleSheet } from 'react-native'
 
 import { WebBrowser } from 'expo';
-import { View, Button, Icon } from 'native-base';
+import { View } from 'native-base';
 import { WebView } from 'react-native'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { SocialIcon, Icon } from 'react-native-elements'
+
+import { Button } from 'react-native-paper'
+
+
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Extras',
+    header: null,
   };
 
   render() {
 
     return (
-      <View style={{ paddingTop: StatusBar.currentHeight }}>
-        <Button iconLeft block
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+      <View style={{ margin: 10 }}>
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/lista.png')}
+          mode='contained'
           onPress={this._abrirTabela}
+          uppercase={false}
+          color='#287233'
         >
-          <Icon name="list-box" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Lista de Produtos
-        </Text>
-
+          Lista de Produtos
         </Button>
-        <Button iconLeft block
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/local.png')}
+          mode='contained'
           onPress={this._abrirLocalizacao}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+          uppercase={false}
+          color='#4A89F3'
         >
-          <Icon name="pin" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Localização
-        </Text>
-        </Button>
-        <Button iconLeft block
-          onPress={this._abrirSite}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
-        >
-          <Icon name="link" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Site Lojinha Importados
-        </Text>
+          Localização
         </Button>
 
-        <Button iconLeft block
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/instagram.png')}
+          mode='contained'
           onPress={this._abrirInsta}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+          uppercase={false}
+          color='#833AB4'
         >
-          <Icon name="logo-instagram" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Instagram
-        </Text>
+          Siga-nos no Instagram
         </Button>
 
-        <Button iconLeft block
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/facebook.png')}
+          mode='contained'
           onPress={this._abrirFace}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+          uppercase={false}
+          color='#3C5A99'
         >
-          <Icon name="logo-facebook" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Facebook
-        </Text>
+          Curta-nos no Facebook
         </Button>
-        <Button iconLeft block
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/whatsappp.png')}
+          mode='contained'
           onPress={this._abrirWhatsapp}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+          uppercase={false}
+          color='#25D366'
         >
-          <Icon name="logo-whatsapp" />
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            WhatsApp
-        </Text>
+          Fale conosco!
         </Button>
-        <Button iconLeft block
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/telegram.png')}
+          mode='contained'
           onPress={this._abrirTelegram}
-          style={{ marginBottom: 10, marginHorizontal: 10 }}
+          uppercase={false}
+          color='#0088cc'
         >
-          <Text style={{ paddingLeft: 10, color: 'white' }}>
-            Telegram
-        </Text>
+          Fale conosco!
         </Button>
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/lojinha.png')}
+          mode='contained'
+          onPress={this._abrirSite}
+          uppercase={false}
+          color='#4E3599'
+        >
+          Visite nosso site
+        </Button>
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/socialIcons/mercado.png')}
+          mode='contained'
+          onPress={this._abrirMercadoLivre}
+          uppercase={false}
+          color='#ffff00'
+        >
+          Nosso Mercado Livre
+        </Button>
+
+
+
       </View>
 
     )
@@ -119,7 +149,25 @@ export default class SettingsScreen extends React.Component {
     this.setState({ result })
   }
 
+  _abrirMercadoLivre = async () => {
+    let result = await WebBrowser.openBrowserAsync('https://perfil.mercadolivre.com.br/LOJINHA+IMPORTADOS')
+    this.setState({ result })
+  }
+
 
 
 
 }
+
+const styles = StyleSheet.create({
+  buttons: {
+    color: "#4E3599",
+    marginBottom: 10,
+    height: 50,
+    borderRadius: 25,
+    marginHorizontal: 15,
+    marginBottom: 10,
+    justifyContent: 'center'
+
+  }
+})
