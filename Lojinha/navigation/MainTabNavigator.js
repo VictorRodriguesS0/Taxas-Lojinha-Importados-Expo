@@ -10,9 +10,12 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 import MercadoPago from '../screens/MercadoPago'
 import SumUp from '../screens/SumUp'
+import MovilePay from  '../screens/MovilePay'
 
 import MPicon from '../TabNavStyles/MPicon'
 import SUicon from '../TabNavStyles/SUicon'
+import MovilePayIcon from '../TabNavStyles/MovilePayIcon'
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -38,6 +41,7 @@ LinksStack.navigationOptions = {
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
+  SumUp: SumUp,
 });
 
 SettingsStack.navigationOptions = {
@@ -50,8 +54,20 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const MovilePayStack = createStackNavigator({
+  MovilePay: MovilePay,
+})
+
+MovilePayStack.navigationOptions = {
+  tabBarLabel: 'MovilePay',
+  tabBarIcon: ({ focused }) => (
+    <MovilePayIcon />
+  ),
+};
+
 export default createBottomTabNavigator({
-  HomeStack,
+  MovilePayStack,
+//  HomeStack,
   LinksStack,
   SettingsStack,
 });

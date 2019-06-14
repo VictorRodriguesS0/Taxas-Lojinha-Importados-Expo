@@ -6,19 +6,24 @@ const lojinha = require("../images/lojinhaIcon.png")
 import { StatusBar } from 'react-native'
 import { WebBrowser } from 'expo'
 
-const taxa2 = 6.5 / 100;
-const taxa3 = 8.23 / 100;
-const taxa4 = 10.01 / 100;
-const taxa5 = 11.86 / 100;
-const taxa6 = 13.77 / 100;
-const taxa7 = 15.74 / 100;
-const taxa8 = 17.79 / 100;
-const taxa9 = 19.91 / 100;
-const taxa10 = 22.1 / 100;
-const taxa11 = 24.38 / 100;
-const taxa12 = 26.74 / 100;
 
-export default class SumUp extends Component {
+const taxa2 = 95.52 / 100;
+const taxa3 = 94.03 / 100;
+const taxa4 = 92.54 / 100;
+const taxa5 = 91.05 / 100;
+const taxa6 = 89.56 / 100;
+const taxa7 = 88.07 / 100;
+const taxa8 = 86.58 / 100;
+const taxa9 = 85.09 / 100;
+const taxa10 = 83.6 / 100;
+const taxa11 = 82.11 / 100;
+const taxa12 = 80.62 / 100;
+
+export default class MovilePay extends Component {
+	static navigationOptions = {
+		header: null,
+	};
+
 	state = {
 		text: "",
 		valor: 0.0,
@@ -40,7 +45,7 @@ export default class SumUp extends Component {
 	_onPress() {
 		let valor = parseFloat(this.state.text);
 
-		let valorColocar = (valor * 104.82) / 100;
+		let valorColocar = valor / (97.01 / 100);
 
 		let uma = this.state.uma;
 		let duas = this.state.duas;
@@ -56,17 +61,17 @@ export default class SumUp extends Component {
 		let doze = this.state.doze;
 
 		uma = valorColocar.toFixed(2);
-		duas = (valor * taxa2 + valor).toFixed(2);
-		tres = (valor * taxa3 + valor).toFixed(2);
-		quatro = (valor * taxa4 + valor).toFixed(2);
-		cinco = (valor * taxa5 + valor).toFixed(2);
-		seis = (valor * taxa6 + valor).toFixed(2);
-		sete = (valor * taxa7 + valor).toFixed(2);
-		oito = (valor * taxa8 + valor).toFixed(2);
-		nove = (valor * taxa9 + valor).toFixed(2);
-		dez = (valor * taxa10 + valor).toFixed(2);
-		onze = (valor * taxa11 + valor).toFixed(2);
-		doze = (valor * taxa12 + valor).toFixed(2);
+		duas = (valor / taxa2).toFixed(2);
+		tres = (valor / taxa3).toFixed(2);
+		quatro = (valor / taxa4).toFixed(2);
+		cinco = (valor / taxa5).toFixed(2);
+		seis = (valor / taxa6).toFixed(2);
+		sete = (valor / taxa7).toFixed(2);
+		oito = (valor / taxa8).toFixed(2);
+		nove = (valor / taxa9).toFixed(2);
+		dez = (valor / taxa10).toFixed(2);
+		onze = (valor / taxa11).toFixed(2);
+		doze = (valor / taxa12).toFixed(2);
 
 		this.setState({
 			valor: valor,
@@ -261,7 +266,6 @@ export default class SumUp extends Component {
 		);
 	}
 }
-
 
 const styles = StyleSheet.create({
 	container: {

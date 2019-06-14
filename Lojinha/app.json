@@ -6,7 +6,7 @@
     "sdkVersion": "32.0.0",
     "android": {
       "package": "com.lojinhaimportados.taxas",
-      "versionCode": 5
+      "versionCode": 6
     },
     "androidStatusBar": {
       "backgroundColor": "#4E3599"

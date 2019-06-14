@@ -8,7 +8,7 @@ import { WebView } from 'react-native'
 import { SocialIcon, Icon } from 'react-native-elements'
 
 import { Button } from 'react-native-paper'
-
+import SumUp from './SumUp';
 
 
 export default class SettingsScreen extends React.Component {
@@ -17,7 +17,7 @@ export default class SettingsScreen extends React.Component {
   };
 
   render() {
-
+    const { navigate } = this.props.navigation;
     return (
       <View style={{ margin: 10 }}>
 
@@ -109,6 +109,17 @@ export default class SettingsScreen extends React.Component {
           Nosso Mercado Livre
         </Button>
 
+
+        <Button
+          style={styles.buttons}
+          icon={require('../images/SumUp.png')}
+          mode='contained'
+          onPress={() => this.props.navigation.navigate("SumUp")}
+          uppercase={false}
+          color='#3232ff'
+        >
+          Taxas Maquina SumUp
+        </Button>
 
 
       </View>
