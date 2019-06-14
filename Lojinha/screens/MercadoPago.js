@@ -90,7 +90,7 @@ export default class MercadoPago extends Component {
 
 	render() {
 		return (
-			<View style={{paddingTop: StatusBar.currentHeight}}>
+			<View >
 
 
 				<ScrollView>
